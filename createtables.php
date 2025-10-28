@@ -107,11 +107,6 @@ $sql_attendance_table = "CREATE TABLE attendance_table (
     att_date DATE,
     att_status ENUM('Present', 'Absent', 'Late'),
     marked_by varchar(50),
-    FOREIGN KEY (std_id) REFERENCES student_info(std_id),
-    FOREIGN KEY (c_id) REFERENCES course_info(c_id),
-    FOREIGN KEY (b_id) REFERENCES batch_info(b_id),
-    FOREIGN KEY (marked_by) REFERENCES teacher_info(t_id),
-    UNIQUE KEY unique_attendance (std_id, c_id, b_id, att_date)
 
 )";
 if (mysqli_query($conn, $sql_attendance_table)) {
@@ -121,6 +116,7 @@ if (mysqli_query($conn, $sql_attendance_table)) {
 }
 
 ?>
+
 
 
 
